@@ -9,9 +9,10 @@ func main() {
 	fmt.Println("开始")
 
 	c, err := kafka.NewConsumer(&kafka.ConfigMap{
-		"bootstrap.servers":"192.168.128.46",
+		"bootstrap.servers":"localhost:9092,localhost:9093,localhost:9094",
 		"group.id":"panGroup",
 		"auto.offset.reset":"earliest",
+		"enable.auto.commit": false,
 	})
 	if err != nil {
 		panic(err)
